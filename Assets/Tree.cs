@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -20,6 +21,20 @@ public class Tree : MonoBehaviour
     void Update()
     {
         Grow();
+    }
+
+    public Wood Chop()
+    {
+        WoodCount--;
+        var woodChopped = Instantiate(WoodPrefab, transform.position + new Vector3(0, 5), Quaternion.identity);
+
+        if (WoodCount < 1)
+        {
+            // Chopped the entire tree
+            WoodCount = -2;
+        }
+
+        return woodChopped.GetComponent<Wood>();
     }
 
     private void Grow()
@@ -47,6 +62,7 @@ public class Tree : MonoBehaviour
         }
     }
 
+    // TODO: change this to add task to selected brave(s).
     private void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -60,14 +76,15 @@ public class Tree : MonoBehaviour
             return;
         }
 
-        WoodCount--;
-        Instantiate(WoodPrefab, transform.position + new Vector3(0, 5), Quaternion.identity);
+        Debug.Log("Clicked the tree!");
 
-        if (WoodCount < 1)
+        var brave = GameMaster.GetInstance().Braves.FirstOrDefault();
+
+        if (brave != null)
         {
-            // Chopped the entire tree
-            WoodCount = -2;
-            return;
+            Debug.Log("Sending brave to chop the tree!");
+
+            brave.Tasks.Enqueue(new TargetTask { TargetGO = gameObject });
         }
     }
 }

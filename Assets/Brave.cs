@@ -7,7 +7,8 @@ public class Brave : TaskableGameObject
     // Start is called before the first frame update
     void Start()
     {
-        Tasks.Enqueue(new MoveTask { Target = new Vector3(10, 0.5f, 10) });
+        //Tasks.Enqueue(new MoveTask { Target = new Vector3(10, 0.5f, 10) });
+        
     }
 
     // TODO: rework this, it was just a test.
