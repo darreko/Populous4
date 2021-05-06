@@ -1,25 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Brave : MonoBehaviour
+public class Brave : TaskableGameObject
 {
     public int Health = 100;
-    public GameObject GO;
-
-    //public float ManaGeneratedPerSecond;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Tasks.Enqueue(new MoveTask { Target = new Vector3(10, 0.5f, 10) });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
+    // TODO: rework this, it was just a test.
     public float GetManaGeneratedPerSecond()
     {
         var rb = GetComponent<Rigidbody>();

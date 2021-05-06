@@ -61,11 +61,10 @@ public class Tree : MonoBehaviour
         }
 
         WoodCount--;
-        Instantiate(WoodPrefab, transform.position, Quaternion.identity);
+        Instantiate(WoodPrefab, transform.position + new Vector3(0, 5), Quaternion.identity);
 
         if (WoodCount < 1)
         {
-            Debug.Log("Tree destroyed! Wait a while!");
             // Chopped the entire tree
             WoodCount = -2;
             return;

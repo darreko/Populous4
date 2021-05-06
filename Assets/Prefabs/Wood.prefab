@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 770153671531410413}
   - component: {fileID: 4887058232469362205}
   - component: {fileID: 1710978520049443085}
+  - component: {fileID: 76861917}
   m_Layer: 0
   m_Name: Wood
   m_TagString: Untagged
@@ -109,3 +110,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d960e516aae8c40a834c1aa1697913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &76861917
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533923370851994657}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
