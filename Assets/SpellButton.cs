@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -23,5 +21,7 @@ public class SpellButton : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log($"{Spell.SpellName} Spell Middle Click Does Nothing.");
         }
+
+        Spell.UpdateSpellPercentageText();
     }
 }

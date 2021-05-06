@@ -13,6 +13,7 @@ public class GameMaster : MonoBehaviour
     public Displayable<float> ManaPerSecond;
 
     // TODO: Populate list of spells from what is inside the spells panel instead of having to also populate this list manually.
+    public GameObject SpellsPanelGO;
     public List<Spell> Spells;
     public Spell SelectedSpell;
 
@@ -32,6 +33,13 @@ public class GameMaster : MonoBehaviour
         }
 
         _Instance = this;
+
+        Spells = SpellsPanelGO.GetComponentsInChildren<Spell>().ToList();
+
+        foreach (var spell in Spells)
+        {
+            Debug.Log($"Found {spell.SpellName} spell!");
+        }
     }
 
     private double _SecondsSincePopulationIncrease = 0;

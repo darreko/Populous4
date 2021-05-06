@@ -13,8 +13,10 @@ public class Spell : MonoBehaviour
     public float ManaToCharge = 100;
     public float CurrentMana = 0;
     public bool IsCharging = false;
+    public Sprite SpellImageSprite;
 
     public Button SpellButton;
+    public Image SpellImage;
     public Text SpellNameText;
     public Text SpellChargesText;
     public Text SpellPercentageText;
@@ -22,6 +24,7 @@ public class Spell : MonoBehaviour
     private void Start()
     {
         SpellNameText.text = SpellName;
+        SpellImage.sprite = SpellImageSprite;
     }
 
     internal void AddMana(float mana)
@@ -37,18 +40,18 @@ public class Spell : MonoBehaviour
             Charges++;
             CurrentMana = 0;
 
-            SetSpellChargesText();
+            UpdateSpellChargesText();
         }
 
-        SetSpellPercentageText();
+        UpdateSpellPercentageText();
     }
 
-    private void SetSpellChargesText()
+    public void UpdateSpellChargesText()
     {
         SpellChargesText.text = $"{Charges}/{MaxCharges}";
     }
 
-    private void SetSpellPercentageText()
+    public void UpdateSpellPercentageText()
     {
         if (!IsCharging || (Charges >= MaxCharges))
         {
