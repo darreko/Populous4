@@ -84,7 +84,7 @@ public class Tree : MonoBehaviour
         {
             Debug.Log("Sending brave to chop the tree!");
 
-            brave.Tasks.Enqueue(new TargetTask { TargetGO = gameObject });
+            brave.SetTask(new TreeTask { TargetGO = gameObject });
         }
     }
 }

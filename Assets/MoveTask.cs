@@ -18,7 +18,7 @@ public class MoveTask : ITask
         var dir = Target - gameObject.transform.position;
         var distanceThisFrame = gameObject.Speed * Time.deltaTime;
 
-        if (dir.magnitude < distanceThisFrame)
+        if (dir.magnitude < distanceThisFrame || dir.magnitude <= .5)
         {
             _IsComplete = true;
             return;
